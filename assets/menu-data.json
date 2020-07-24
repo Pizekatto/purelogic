@@ -100,7 +100,7 @@
       },
       "customer": {
         "title": "Покупателю",
-        "data": ""
+        "data": []
       },
       "actions": {
         "title": "Акции",
