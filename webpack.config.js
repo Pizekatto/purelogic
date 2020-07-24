@@ -22,7 +22,9 @@ const optimization = () => {
   if (isProd) {
     config.minimizer = [
       new OptimizeCSSAssetsWebpackPlugin(),
-      new TerserWebpackPlugin()
+      new TerserWebpackPlugin({
+        sourceMap: true,
+      })
     ]
   }
 
@@ -119,7 +121,8 @@ module.exports = {
     // host: '192.168.0.2',
     hot: false
   },
-  devtool: isDev ? 'source-map' : '',
+  // devtool: isDev ? 'source-map' : '',
+  devtool: 'source-map',
   plugins: plugins(),
   module: {
     rules: [{
