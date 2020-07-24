@@ -115,8 +115,8 @@ module.exports = {
   },
   optimization: optimization(),
   devServer: {
-    port: 4206,
-    host: '192.168.0.2',
+    // port: 4206,
+    // host: '192.168.0.2',
     hot: false
   },
   devtool: isDev ? 'source-map' : '',
