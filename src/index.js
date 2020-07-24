@@ -114,7 +114,7 @@ const loadCatalog = cleanCatalog(catalog.elem)
 
 
 const getData = async() => {
-  const response = await fetch('../assets/menu-data.json')
+  const response = await fetch('./assets/menu-data.json')
   data = await response.json()
 }
 
