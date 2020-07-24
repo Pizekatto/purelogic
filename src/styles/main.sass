@@ -1,0 +1,579 @@
+@import ./reboot
+@import ./mixins/breakpoints
+@import ./fonts
+
+.container
+  display: flex
+  flex-wrap: wrap
+  max-width: 1920px
+  margin: auto
+  @include media-breakpoint-up(lg)
+    flex-wrap: nowrap
+
+aside
+  flex: 1 1 100%
+  display: flex
+  @include media-breakpoint-up(lg)
+    padding: 0 15px
+    box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.1)
+    justify-content: center
+    flex: 1 1 auto
+    max-width: 370px
+.sidebar
+  flex: 1 1 auto
+  min-width: 230px
+  @include media-breakpoint-up(lg)
+    padding: 20px 10px
+    flex: 0 1 auto
+    display: block
+    padding: 0
+  @include media-breakpoint-up(xl)
+    max-width: 270px
+    min-width: 240px
+.top-section
+  padding: 0 15px
+  height: 60px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  @include media-breakpoint-up(lg)
+    height: auto
+.logo
+  @include media-breakpoint-up(lg)
+    height: 100px
+    padding-top: 25px
+  &-image
+    height: 25px
+    @include media-breakpoint-up(lg)
+      height: auto
+  &.hide
+    display: none
+    @include media-breakpoint-up(lg)
+      display: block
+.burger
+  position: relative
+  width: 25px
+  height: 21px
+  @include media-breakpoint-up(lg)
+    display: none
+  span
+    position: absolute
+    background-color: #3C3C3B
+    border-radius: 3px
+    width: 100%
+    height: 3px
+    &:nth-child(2)
+      top: 9px
+    &:nth-child(3)
+      top: 18px
+  &.open
+    height: 17px
+    span
+      top: 9px
+      width: 20px
+      height: 1px
+      transform: rotate(-45deg)
+      &:nth-child(2)
+        width: 20px
+        height: 1px
+        transform: rotate(45deg)
+      &:nth-child(3)
+        display: none
+.back
+  display: none
+  font-size: 14px
+  color: #AEAEAE
+  &::before
+    content: ''
+    display: inline-block
+    vertical-align: middle
+    width: 18px
+    height: 18px
+    margin-right: 15px
+    background:
+      image: url('../assets/images/icons/back.svg')
+      repeat: no-repeat
+      size: 100%
+      position: center
+  &.show
+    display: block
+    @include media-breakpoint-up(lg)
+      display: none
+.catalog
+  display: none
+  font-size: 14px
+  @include media-breakpoint-up(lg)
+    display: block
+  @include media-breakpoint-up(xl)
+    font-size: 16px
+  .show-list &
+    display: block
+  &-title
+    display: none
+    align-items: center
+    padding-left: 15px
+    font-size: 18px
+    font-weight: 500
+    line-height: 23px
+    .mobile &
+      display: flex
+    span
+      position: relative
+      display: inline-block
+      &::before
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 2px
+        background-color: #95B03C
+  &-item
+    height: 50px
+    border:
+      width: 1px 0
+      style: solid
+      color: #ECECEC
+    background-color: #F8F8F8
+    .mobile &
+      height: 60px
+      background-color: #fff
+      border:
+        width: 0 0 1px
+        style: solid
+        color: #F2F2F2
+      &:first-child
+        border-width: 1px 0
+    &:first-child
+      border-width: 2px 0 1px
+    &:last-child
+      border-width: 1px 0 2px
+    &:last-child:not(:only-child)
+      .mobile &
+        display: none
+    &.accent
+      background-color: #fff
+    &__link
+      display: flex
+      height: 100%
+    &__icon
+      min-width: 65px
+      display: flex
+      justify-content: center
+      align-items: center
+      @include media-breakpoint-up(lg)
+        min-width: 73px
+      &-image
+    &__title
+      display: flex
+      align-items: center
+      padding-right: 20px
+
+
+.main
+  position: relative
+  flex: 1 1 100%
+  @include media-breakpoint-up(lg)
+    position: static
+    flex: 1 1 auto
+header
+  width: 100%
+  position: absolute
+  display: flex
+  background-color: #fff
+  &::after
+    content: ''
+    position: absolute
+    z-index: -1
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 10%
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1)
+    @include media-breakpoint-up(lg)
+      display: none
+  @include media-breakpoint-up(lg)
+    position: relative
+    width: auto
+  &.show-menu
+    flex-wrap: wrap
+    &::after
+      display: none
+    @include media-breakpoint-up(lg)
+      flex-wrap: nowrap
+  &.hide
+    display: none
+    @include media-breakpoint-up(lg)
+      display: flex
+.navigation
+  display: none
+  flex: 0 1 50%
+  @include media-breakpoint-up(lg)
+    display: block
+  .show-menu &
+    flex: 0 1 100%
+    display: block
+    @include media-breakpoint-up(lg)
+      flex: 0 1 50%
+.right-section
+  padding: 6px 10px
+  flex: 1 1 auto
+  display: flex
+  justify-content: space-between
+  color: #fff
+  border:
+    width: 3px 0 0
+    style: solid
+    color: #95B03C
+  .show-menu &
+    border: 0
+    padding: 28px 0 30px 14px
+    @include media-breakpoint-up(lg)
+      padding: 0
+  @include media-breakpoint-up(lg)
+    justify-content: flex-start
+    flex: 0 1 50%
+    background-color: #95B03C
+    padding: 0
+    border: none
+
+.menu-section
+  display: flex
+  justify-content: center
+  padding: 19px 30px 14px
+  .show-menu &
+    padding: 0
+    @include media-breakpoint-up(lg)
+      padding: 19px 30px 14px
+.menu
+  flex: 1 1 auto
+  display: flex
+  justify-content: space-between
+  font-size: 14px
+  max-width: 675px
+  min-width: 500px
+  .show-menu &
+    display: block
+    max-width: none
+    min-width: 0
+    animation: fade .5s
+    @include media-breakpoint-up(lg)
+      display: flex
+      max-width: 675px
+      min-width: 500px
+  li
+    &:nth-child(1), &:nth-child(2)
+      // display: list-item
+      @include media-breakpoint-up(lg)
+        display: none
+        .show-menu &
+          display: none
+    .show-menu &
+      display: flex
+      align-items: center
+      justify-content: space-between
+      height: 60px
+      padding: 0 24px 0 15px
+      border:
+        width: 0 0 1px
+        style: solid
+        color: #F2F2F2
+      &:first-child
+        border-width: 1px 0
+      &:hover
+        background-color: #95B03C
+        & .menu-link
+          color: #fff
+          @include media-breakpoint-up(lg)
+            color: inherit
+      @include media-breakpoint-up(lg)
+        display: list-item
+        height: auto
+        padding: 0
+        border: none
+        &:hover
+          background-color: #fff
+
+
+.has-entries
+  &::after
+    content: ''
+    display: inline-block
+    --size: 12px
+    margin-left: 4px
+    vertical-align: middle
+    width: var(--size)
+    height: var(--size)
+    background:
+      image: url('../assets/images/icons/arrow-dark.svg')
+      repeat: no-repeat
+      size: 100%
+      position: center
+    @include media-breakpoint-up(xl)
+      margin-left: 10px
+  .show-menu &
+    &::after
+      transform: rotate(-90deg)
+      @include media-breakpoint-up(lg)
+        transform: none
+    &:hover
+      &::after
+        background:
+          image: url('../assets/images/icons/arrow.svg')
+        @include media-breakpoint-up(lg)
+          background:
+            image: url('../assets/images/icons/arrow-dark.svg')
+
+
+.search
+  display: flex
+  justify-content: center
+  padding: 8px 30px 8px
+  background-color: #F8F8F8
+  .show-menu &
+    display: none
+    @include media-breakpoint-up(lg)
+      display: flex
+  &-form
+    flex: 1 1 auto
+    display: flex
+    position: relative
+    height: 38px
+    font-size: 14px
+    max-width: 675px
+    &::after
+      content: ''
+      position: absolute
+      top: 12px
+      right: 88px
+      --size: 14px
+      width: var(--size)
+      height: var(--size)
+      background:
+        image: url('../assets/images/icons/search.svg')
+        repeat: no-repeat
+        size: 100%
+        position: center
+    &__input
+      flex-grow: 1
+      border: 1px solid #E0E0E0
+      padding-left: 15px
+      &::placeholder
+        color: #B0B0B0
+    &__button
+      width: 120px
+      background-color: #3C3C3B
+      color: #fff
+
+.controls-box
+  flex: 0 1 auto
+  display: flex
+  justify-content: center
+  min-width: 120px
+  transition: min-width .5s ease
+  animation: fade .5s
+  @include media-breakpoint-up(lg)
+    flex: 1 1 auto
+    border:
+      width: 0 1px 1px 0
+      style: solid
+      color: rgba(255, 255, 255, 0.25)
+  @include media-breakpoint-up(xl)
+    align-items: center
+    min-width: 280px
+  .show-menu &
+    display: none
+    @include media-breakpoint-up(lg)
+      display: flex
+.controls
+  flex: 1 1 auto
+  display: flex
+  flex-wrap: nowrap
+  font-size: 12px
+  min-width: 150px
+  padding-right: 10px
+  @include media-breakpoint-up(lg)
+    flex-wrap: wrap
+    padding: 0
+  &-item
+    flex: 0 1 20%
+    display: flex
+    justify-content: center
+    align-items: center
+    &:first-child
+      .controls-lg &
+        display: none
+    @include media-breakpoint-up(lg)
+      flex: 1 1 50%
+    @include media-breakpoint-up(xl)
+      align-items: flex-end
+      flex: 1 1 25%
+    &__link
+      display: flex
+      flex-direction: column
+      align-items: center
+      @include media-breakpoint-up(lg)
+        color: #fff
+        &:hover
+          color: #fff
+    &__icon
+      position: relative
+      &::after
+        display: none
+        content: attr(data-message)
+        position: absolute
+        top: -10px
+        right: -5px
+        font-size: 11px
+        font-weight: 700
+        @include media-breakpoint-up(lg)
+          right: -10px
+          font-size: 12px
+      @include media-breakpoint-up(xl)
+        margin-bottom: 8px
+      .has-message &
+        &::after
+          display: block
+    &__image
+    &__title
+      display: none
+      @include media-breakpoint-up(xl)
+        display: block
+
+.contacts
+  flex: 1 1 auto
+  display: none
+  justify-content: center
+  align-items: center
+  max-width: 188px
+  min-width: 160px
+  border:
+    width: 0 0 1px 0
+    style: solid
+    color: rgba(255, 255, 255, 0.25)
+  .show-menu &
+    flex: 0 1 auto
+    justify-content: flex-start
+    display: flex
+    color: #0C0C0C
+    @include media-breakpoint-up(lg)
+      flex: 1 1 auto
+      justify-content: center
+      color: #fff
+  @include media-breakpoint-up(lg)
+    display: flex
+  &-content
+    display: flex
+    flex-direction: column
+  &__phone, &__city
+    color: #fff
+    &:hover
+      color: #fff
+    .show-menu &
+      color: #0C0C0C
+      &:hover
+        color: #0C0C0C
+      @include media-breakpoint-up(lg)
+        color: #fff
+        &:hover
+          color: #fff
+  &__free
+    font-size: 14px
+    line-height: 14px
+    margin-bottom: 7px
+    @include media-breakpoint-up(lg)
+      margin-bottom: 0
+      font-size: 12px
+  &__phone
+    font-size: 18px
+    line-height: 26px
+    font-weight: 700
+    margin-bottom: 11px
+    @include media-breakpoint-up(lg)
+      margin-bottom: 0
+      font-size: 16px
+    @include media-breakpoint-up(xl)
+      font-size: 18px
+  &__location
+    font-size: 16px
+    line-height: 26px
+    &::before
+      content: ''
+      display: inline-block
+      --size: 13px
+      width: var(--size)
+      height: var(--size)
+      background:
+        image: url('../assets/images/icons/geolocation-dark.svg')
+        repeat: no-repeat
+        size: 80%
+        position: center
+      margin-right: 9px
+      vertical-align: middle
+      @include media-breakpoint-up(lg)
+        background:
+          image: url('../assets/images/icons/geolocation.svg')
+    @include media-breakpoint-up(lg)
+      font-size: 11px
+    @include media-breakpoint-up(xl)
+      font-size: 12px
+  &__city
+    border:
+      width: 0 0 1px
+      style: dotted
+      color: #0C0C0C
+    @include media-breakpoint-up(lg)
+      border-color: #fff
+
+.request
+  display: flex
+  padding: 10px 22px
+  background-color: #3C3C3B
+  @include media-breakpoint-up(lg)
+    justify-content: center
+    align-items: center
+    flex: 0 1 auto
+    min-width: 145px
+    max-width: 224px
+    padding: 0
+    flex: 1 1 auto
+  .show-menu &
+    display: none
+    @include media-breakpoint-up(lg)
+      display: flex
+
+  &-link
+    font-size: 14px
+    font-weight: 700
+    line-height: 24px
+    color: #fff
+    &:hover
+      color: #fff
+    &::before
+      content: 'Консультация'
+      display: inline-block
+    @include media-breakpoint-up(lg)
+      font-weight: 500
+      padding: 0
+      line-height: 20px
+      max-width: 100px
+      &::before
+        text-align: left
+        content: 'Запросить консультацию'
+    @include media-breakpoint-up(xl)
+      line-height: 22px
+      font-size: 18px
+      max-width: 125px
+      &::before
+
+main
+  padding-top: 60px
+  @include media-breakpoint-up(lg)
+    padding-top: 0
+
+
+@keyframes fade
+  0%
+    opacity: 0
+  100%
+    opacity: 1
